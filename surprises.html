@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Valentine Surprises 💝</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hearts-background"></div>
+    
+    <div class="container">
+        <h1 class="page-title">Hey You ❤️</h1>
+        
+        <div class="tiles-container">
+            <div class="tile" onclick="openLoveLetter()">
+                <div class="tile-icon">💌</div>
+                <h2>Something I Wanted You to Read</h2>
+                <p>So… does a website count as a love letter?</p>
+            </div>
+
+            <div class="tile" onclick="openPictures()">
+                <div class="tile-icon">📸</div>
+                <h2>Celebrating Us</h2>
+                <p>So far...</p>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div id="letterModal" class="modal">
+        <div class="modal-content letter-content">
+            <span class="close" onclick="closeLetter()">&times;</span>
+            <div class="letter-paper">
+                <h2>My Dearest ❤️</h2>
+                <div class="letter-text">
+                    <p>Dear Buuu,</p>
+                    
+                    <p>Did we really meet only five times? I still can’t believe it.
+                        Happy Valentine’s Day to the one who holds my heart 💖
+
+                        I don’t have much to say, just that I absolutely love sending you pengu stickers throughout the day, especially in the mornings.
+
+                        When we meet, let’s finally test your goal of Puu doing pull-up (Not Plural hahaha) with Buuu hanging from his waist 😄. 
+
+                        You cutie Valentine… muaaahhhhh! 😘
+
+                        Eagerly waiting for our 6th meet 💕</p>
+
+                    <p class="signature">Yours<br>Puuu aka Kasha aka Akash^^ 💕</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="picturesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePictures()">&times;</span>
+            <h2>When Puuu Met Buuu </h2>
+            <div class="pictures-gallery">
+
+                <div class="gallery-item">
+                    <img src="./images/Screenshot_2025-11-09-18-32-55-24_92460851df6f172a4592fca41cc2d2e6.jpg" alt="Our Memory 1">
+                    <p class="photo-caption">Before I knew you'd be mine</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/IMG20250929094343.jpg" alt="Our Memory 2">
+                    <p class="photo-caption">I was curious about the color</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/IMG-20250929-WA0006.jpg" alt="Our Memory 3">
+                    <p class="photo-caption">Those flowers look much prettier in your hands (our first date)</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/IMG_20251103_223331.jpg" alt="Our Memory 4">
+                    <p class="photo-caption">This view!</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/IMG_20251201_094712.jpg" alt="Our Memory 5">
+                    <p class="photo-caption">Such a hot couple.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/IMG20251201152611.jpg" alt="Our Memory 6">
+                    <p class="photo-caption">Symmetry</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/IMG_20260113_175639.png" alt="Our Memory 7">
+                    <p class="photo-caption">Yo!!!!</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/IMG20251130205945.jpg" alt="Our Memory 8">
+                    <p class="photo-caption">Its your Puuu</p>
+                </div>
+            
+                <div class="gallery-item">
+                    <img src="./images/IMG20251228002546.jpg" alt="Our Memory 9">
+                    <p class="photo-caption">Those Hands!</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/IMG20260118210248.jpg" alt="Our Memory 10">
+                    <p class="photo-caption">Love Ya!</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation
+        //function goBack() {
+        //    window.location.href = 'index.html';
+        //}
+
+
+        function openLoveLetter() {
+            document.getElementById('letterModal').style.display = 'block';
+        }
+        function closeLetter() {
+            document.getElementById('letterModal').style.display = 'none';
+        }
+
+
+        function openPictures() {
+            document.getElementById('picturesModal').style.display = 'block';
+        }
+        function closePictures() {
+            document.getElementById('picturesModal').style.display = 'none';
+        }
+
+
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let modal of modals) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.querySelector('.hearts-background').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>

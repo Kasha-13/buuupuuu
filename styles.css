@@ -1,0 +1,588 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 🔽 PUT YOUR BACKGROUND IMAGE PATH HERE 🔽 */
+    /* Example: background: url('./images/your-background.jpg'); */
+    background: 
+        linear-gradient(135deg, rgba(255, 154, 158, 0.85) 0%, rgba(250, 208, 196, 0.85) 50%, rgba(255, 236, 210, 0.85) 100%),
+        url('./images/background.png'); /* 👈 REPLACE 'background.jpg' WITH YOUR IMAGE NAME */
+    /* 🔼 The gradient overlay makes it subtle and not too in-your-face 🔼 */
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Floating Hearts Background */
+.hearts-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 30px;
+    animation: floatUp 5s linear;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -50px;
+        opacity: 0.7;
+        transform: translateX(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(100px) rotate(180deg);
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: translateX(-100px) rotate(360deg);
+    }
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Page Styles */
+.message-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+    text-align: center;
+    max-width: 600px;
+    animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.glitter-text {
+    font-size: 3.5em;
+    background: linear-gradient(45deg, #ff6b9d, #c06c84, #f67280, #ff6b9d);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.emoji-dance {
+    font-size: 5em;
+    animation: dance 1s ease-in-out infinite;
+    margin: 20px 0;
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(-5deg) scale(1);
+    }
+    25% {
+        transform: rotate(5deg) scale(1.1);
+    }
+    50% {
+        transform: rotate(-5deg) scale(1);
+    }
+    75% {
+        transform: rotate(5deg) scale(1.1);
+    }
+}
+
+.subtitle {
+    font-size: 1.3em;
+    color: #ff6b9d;
+    margin: 20px 0 30px;
+    font-style: italic;
+}
+
+.valentine-button {
+    background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.valentine-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 107, 157, 0.6);
+}
+
+.valentine-button:active {
+    transform: translateY(-2px);
+}
+
+/* Surprises Page Styles */
+.page-title {
+    font-size: 2.5em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tiles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 30px;
+}
+
+.tile {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 20px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+}
+
+.tile:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+}
+
+.tile-icon {
+    font-size: 4em;
+    margin-bottom: 15px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.tile:nth-child(1) .tile-icon {
+    animation-delay: 0s;
+}
+
+.tile:nth-child(2) .tile-icon {
+    animation-delay: 0.3s;
+}
+
+.tile:nth-child(3) .tile-icon {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.tile h2 {
+    color: #ff6b9d;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.tile p {
+    color: #666;
+    font-size: 1em;
+}
+
+.back-button {
+    background: rgba(255, 255, 255, 0.9);
+    color: #ff6b9d;
+    border: 2px solid #ff6b9d;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background: #ff6b9d;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #fff5f7 0%, #ffe9f0 100%);
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.4s ease-out;
+    position: relative;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #ff6b9d;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    color: #ff3366;
+    transform: rotate(90deg);
+}
+
+.modal-content h2 {
+    color: #ff6b9d;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* Love Letter Styles */
+.letter-content {
+    background: #fff;
+}
+
+.letter-paper {
+    background: linear-gradient(to bottom, #fff 0%, #fffaf0 100%);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(255, 107, 157, 0.1);
+    border: 2px solid #ffebee;
+}
+
+.letter-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #333;
+    font-family: 'Georgia', serif;
+}
+
+.letter-text p {
+    margin-bottom: 20px;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: #ff6b9d;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* Pictures Gallery Styles */
+.pictures-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #ff6b9d;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* ============================================ */
+/* 🎮 MEMORY GAME STYLES 🎮 */
+/* ============================================ */
+
+#gameArea {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.game-instructions {
+    font-size: 1.1em;
+    color: #ff6b9d;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.game-stats span {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.game-stats strong {
+    color: #ff6b9d;
+    font-size: 1.2em;
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.memory-card:hover:not(.matched) {
+    transform: scale(1.05);
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    opacity: 0.6;
+    cursor: default;
+    animation: matchPulse 0.6s ease;
+}
+
+@keyframes matchPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+}
+
+.win-message {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #fff5f7, #ffe9f0);
+    border-radius: 15px;
+    border: 3px solid #ff6b9d;
+    animation: celebrate 0.6s ease;
+}
+
+@keyframes celebrate {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.05) rotate(-2deg);
+    }
+    75% {
+        transform: scale(1.05) rotate(2deg);
+    }
+}
+
+.win-message h3 {
+    color: #ff6b9d;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.win-message p {
+    color: #666;
+    font-size: 1.2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .glitter-text {
+        font-size: 2.5em;
+    }
+    
+    .emoji-dance {
+        font-size: 3em;
+    }
+    
+    .message-box {
+        padding: 40px 20px;
+    }
+    
+    .tiles-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 20px;
+    }
+    
+    .letter-paper {
+        padding: 20px;
+    }
+
+    .memory-game {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .card-front,
+    .card-back {
+        font-size: 2em;
+    }
+
+    .game-stats {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .memory-game {
+        gap: 8px;
+    }
+
+    .card-front,
+    .card-back {
+        font-size: 1.5em;
+    }
+}
